@@ -28,20 +28,27 @@ const RouteAuth = () => {
         };
         const user = await instance.post("/auth/login", userData);
         await dispatch(login(user.data));
-        navigate("/Sertificates");
+        navigate("/");
       } catch (error) {
+        alert(error.response.data.message);
         return error;
       }
     } else {
       if (password === repeatPassword) {
-        const userData = {
-          firstName,
-          username,
-          email,
-          password,
-        };
-        const newUser = await instance.post("/auth/register", userData);
-        console.log(newUser.data);
+        try {
+          const userData = {
+            firstName,
+            username,
+            email,
+            password,
+          };
+          const newUser = await instance.post("/auth/register", userData);
+          await dispatch(login(newUser.data));
+          navigate("/");
+        } catch (error) {
+          alert(error.response.data.message);
+          return error;
+        }
       } else {
         alert("У Вас не совпадают пароли!!!");
       }
