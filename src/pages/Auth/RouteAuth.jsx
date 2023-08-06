@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import cl from "./RouteAuth.module.scss";
 import { Box } from "@mui/material";
-
 import { instance } from "../../utils/axios";
+import { useAppDispatch } from "../../utils/hook";
+import { login } from "../../srore/slice/auth";
 
 const RouteAuth = () => {
   const [email, setEmail] = useState("");
@@ -14,18 +15,25 @@ const RouteAuth = () => {
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const location = useLocation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (location.pathname === "/Login") {
-      const userData = {
-        email,
-        password,
-      };
-      const user = await instance.post("/auth/login", userData);
-      console.log(user.data);
+      try {
+        const userData = {
+          email,
+          password,
+        };
+        const user = await instance.post("/auth/login", userData);
+        await dispatch(login(user.data));
+        navigate("/Sertificates");
+      } catch (error) {
+        return error;
+      }
     } else {
-      if(password===repeatPassword){
+      if (password === repeatPassword) {
         const userData = {
           firstName,
           username,
@@ -34,8 +42,8 @@ const RouteAuth = () => {
         };
         const newUser = await instance.post("/auth/register", userData);
         console.log(newUser.data);
-      }else{
-         alert("У Вас не совпадают пароли!!!")
+      } else {
+        alert("У Вас не совпадают пароли!!!");
       }
     }
   };
