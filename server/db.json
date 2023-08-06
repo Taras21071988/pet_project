@@ -1,0 +1,144 @@
+{
+  "user": [],
+  "sertificates": [
+    {
+      "id": 1,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 200
+    },
+    {
+      "id": 2,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 300
+    },
+    {
+      "id": 3,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 400
+    },
+    {
+      "id": 4,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 500
+    },
+    {
+      "id": 5,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 750
+    },
+    {
+      "id": 6,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 1000
+    },
+    {
+      "id": 7,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 1500
+    },
+    {
+      "id": 8,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 2000
+    },
+    {
+      "id": 9,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 2500
+    },
+    {
+      "id": 10,
+      "title": "Сертификат на продцедуры",
+      "subtitle": "Стоимость: ",
+      "price": 5000
+    }
+  ],
+  "added": [],
+  "checkout": [
+    {
+      "key": 700,
+      "id": 1690265976023
+    },
+    {
+      "key": 300,
+      "id": 1691138226614
+    }
+  ],
+  "swiper": [
+    {
+      "id": 1,
+      "imgSwip": "/images/swiper/slide1.jpg"
+    },
+    {
+      "id": 2,
+      "imgSwip": "/images/swiper/slide2.jpg"
+    },
+    {
+      "id": 3,
+      "imgSwip": "/images/swiper/slide3.jpg"
+    },
+    {
+      "id": 4,
+      "imgSwip": "/images/swiper/slide4.jpg"
+    }
+  ],
+  "foto__inst": [
+    {
+      "id": 1,
+      "foto__inst": "/images/inst/foto__inst/foto__inst1.jpg",
+      "title": "Тут должно быть описание к изображению №1",
+      "subtitle": "тут тоже что то может быть написанно1"
+    },
+    {
+      "id": 2,
+      "foto__inst": "/images/inst/foto__inst/foto__inst2.jpg",
+      "title": "Тут должно быть описание к изображению №2",
+      "subtitle": "1111111111111тут тоже что то может быть написанно2"
+    },
+    {
+      "id": 3,
+      "foto__inst": "/images/inst/foto__inst/foto__inst3.jpg",
+      "title": "Тут должно быть описание к изображению №3",
+      "subtitle": "тут тоже что то может быть написанно3"
+    },
+    {
+      "id": 4,
+      "foto__inst": "/images/inst/foto__inst/foto__inst4.jpg",
+      "title": "Тут должно быть описание к изображению №4",
+      "subtitle": "тут тоже что то может быть написанно4"
+    },
+    {
+      "id": 5,
+      "foto__inst": "/images/inst/foto__inst/foto__inst5.jpg",
+      "title": "Тут должно быть описание к изображению №5",
+      "subtitle": "тут тоже что то может быть написанно5"
+    },
+    {
+      "id": 6,
+      "foto__inst": "/images/inst/foto__inst/foto__inst6.jpg",
+      "title": "Тут должно быть описание к изображению №6",
+      "subtitle": "тут тоже что то может быть написанно6"
+    },
+    {
+      "id": 7,
+      "foto__inst": "/images/inst/foto__inst/foto__inst7.jpg",
+      "title": "Тут должно быть описание к изображению №7",
+      "subtitle": "тут тоже что то может быть написанно7"
+    },
+    {
+      "id": 8,
+      "foto__inst": "/images/inst/foto__inst/foto__inst8.jpg",
+      "title": "Тут должно быть описание к изображению №8",
+      "subtitle": "тут тоже что то может быть написанно8"
+    }
+  ]
+}

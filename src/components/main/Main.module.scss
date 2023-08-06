@@ -1,0 +1,21 @@
+.main {
+  margin: 0 auto;
+  margin-bottom: 100px;
+  .swiper__wrapper {
+    .swiper {
+      max-width: 100%;
+      img{
+        
+      }
+    }
+    .swiper__text {
+      font-size: 25px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      position: relative;
+      top: -82px;
+      left: 10px;
+      z-index: 5;
+    }
+  }
+}

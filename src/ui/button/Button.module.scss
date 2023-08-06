@@ -1,0 +1,16 @@
+.info__btn {
+      padding: 15px;
+      color: #fff;
+      background-color: #9dd558;
+      border-radius: 15px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease-in-out;
+      &:hover {
+        background-color: lighten($color: #9dd558, $amount: 5%);
+      }
+      &:active {
+        background-color: darken($color: #9dd558, $amount: 10%);
+      }
+    }

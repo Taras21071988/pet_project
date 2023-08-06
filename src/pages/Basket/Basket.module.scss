@@ -1,0 +1,35 @@
+.basket {
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  .basket__title {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  .basket__wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 250px;
+    .basket__item {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #96f37f;
+      padding: 20px;
+      border-radius: 14px;
+      align-items: center;
+      .item__title {
+        margin-bottom: 25px;
+      }
+      .item__subtitle {
+        margin-bottom: 25px;
+      }
+    }
+  }.basket__checkout{
+    display: flex;
+    flex-direction:column;
+    margin-bottom: 50px;
+  }
+  .total{
+    margin-bottom: 25px;
+  }
+}

@@ -1,0 +1,18 @@
+.sertificat{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #96f37f;
+      padding: 20px;
+      border-radius: 14px;
+      align-items: center;
+      img{
+        width: 55px;
+        height: 55px;
+      }
+      .sertificat__title{
+        margin-bottom: 20px;
+        
+      }.sertificat__subtitle{
+          margin-bottom: 30px;
+        }
+    }

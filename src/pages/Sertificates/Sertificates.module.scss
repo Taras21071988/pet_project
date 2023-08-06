@@ -1,0 +1,16 @@
+.sertificates{
+  margin-bottom: 50px;
+  padding-top: 200px;
+  .sertificates__title{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .sertificates__wrapper{
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: space-between;
+
+    gap: 15px;
+    
+  }
+}

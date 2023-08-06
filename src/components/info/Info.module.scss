@@ -1,0 +1,45 @@
+.info__wrapper {
+  margin-bottom: 100px;
+  .info__text {
+    .info__text_title {
+      text-align: center;
+      font-size: 55px;
+      margin-bottom: 55px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    .info__text_items {
+      margin-bottom: 50px;
+      display: flex;
+      .info__text_item {
+        .item__title {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          margin-bottom: 50px;
+          font-size: 30px;
+          text-align: center;
+        }
+        .item__text {
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+    }
+    .info__btn {
+      padding: 25px;
+      color: #fff;
+      background-color: #9dd558;
+      border-radius: 15px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease-in-out;
+      &:hover {
+        background-color: lighten($color: #9dd558, $amount: 5%);
+      }
+      &:active {
+        background-color: darken($color: #9dd558, $amount: 10%);
+      }
+    }
+  }
+}

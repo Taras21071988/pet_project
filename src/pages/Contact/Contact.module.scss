@@ -1,0 +1,31 @@
+.contact {
+  margin-bottom: 100px;
+  padding-top: 200px;
+  .contact__wrapper {
+    display: flex;
+    flex-direction: column;
+    .contact__list_wrapper {
+      padding: 20px;
+      margin-bottom: 10px;
+      .contact_list_title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 64px;
+        margin-bottom: 25px;
+        pointer-events: none;
+      }
+      .contact_list {
+        padding: 10px;
+        margin-bottom: 25px;
+        font-size: 26px;
+        .contact__list_item {
+          margin-bottom: 10px;
+          p{
+            pointer-events: none;
+          }
+        }
+      }
+    }.contact__map{
+      margin: 0 auto;
+    }
+  }
+}
