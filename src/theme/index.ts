@@ -48,7 +48,7 @@ export const tokens = (mode: string) => ({
         },
       }),
 });
-export const ThemeSettings = (mode: string) => {
+export const themeSettings: any = (mode: string) => {
   const colors = tokens(mode);
   return {
     palette: {
@@ -59,7 +59,7 @@ export const ThemeSettings = (mode: string) => {
               main: colors.green.DEFAULT,
             },
             secondary: {
-              main: colors.green[50],
+              main: colors.green[900],
             },
             neutral: {
               dark: colors.black.DEFAULT,
@@ -71,7 +71,7 @@ export const ThemeSettings = (mode: string) => {
               main: colors.green.DEFAULT,
             },
             secondary: {
-              main: colors.green[50],
+              main: colors.green[900],
             },
             neutral: {
               dark: colors.black.DEFAULT,
@@ -79,5 +79,47 @@ export const ThemeSettings = (mode: string) => {
             },
           }),
     },
+    typography: {
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
+      fontSize: 14,
+      fontWeight: 500,
+      h1: {
+        fontFamily: ["Montserrat", "sans-serif"].join(","),
+        fontSize: 28,
+        fontWeight: 600,
+      },
+      h2: {
+        fontFamily: ["Montserrat", "sans-serif"].join(","),
+        fontSize: 20,
+        fontWeight: 600,
+      },
+      h3: {
+        fontFamily: ["Montserrat", "sans-serif"].join(","),
+        fontSize: 18,
+        fontWeight: 600,
+      },
+      p: {
+        fontFamily: ["Montserrat", "sans-serif"].join(","),
+        fontSize: 14,
+        fontWeight: 500,
+      },
+    },
   };
+};
+
+export const ColorModeContext: any = createContext({
+  toggleColorMode: () => {},
+});
+
+export const useMode = () => {
+  const [mode, setMode] = useState("light");
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () =>
+        setMode((prev) => (prev === "light" ? "dark" : "light")),
+    }),
+    []
+  );
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  return [theme, colorMode];
 };

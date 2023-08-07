@@ -9,8 +9,11 @@ import Sertificates from "./pages/Sertificates/Sertificates";
 import axios from "axios";
 import PrivateRouter from "./utils/router/PrivateRouter";
 import RouteAuth from "./pages/Auth/RouteAuth";
+import { ColorModeContext, useMode } from "./theme";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 function App() {
+  const [theme, colorMode] = useMode();
   const [sertificates, setSertificates] = useState([]);
   const [basketItems, setBasketItems] = useState([]);
   const [total, setTotal] = useState(0);
@@ -70,40 +73,48 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="wrap">
-        <Header total={total} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Contact" element={<Contact />} />
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="App">
+          <div className="wrap">
+            <Header total={total} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Contact" element={<Contact />} />
 
-          <Route element={<PrivateRouter />}>
-            <Route
-              path="/Basket"
-              element={
-                <Basket
-                  items={basketItems}
-                  total={total}
-                  onRemoveItem={onRemoveItem}
-                  addToCheckout={addToCheckout}
+              <Route element={<PrivateRouter />}>
+                <Route
+                  path="/Basket"
+                  element={
+                    <Basket
+                      items={basketItems}
+                      total={total}
+                      onRemoveItem={onRemoveItem}
+                      addToCheckout={addToCheckout}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/Sertificates"
-              element={
-                <Sertificates items={sertificates} addToBasket={addToBasket} />
-              }
-            />
-          </Route>
-          <Route path="/Register" element={<RouteAuth />} />
-          <Route path="/Login" element={<RouteAuth />} />
-        </Routes>
-      </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+                <Route
+                  path="/Sertificates"
+                  element={
+                    <Sertificates
+                      items={sertificates}
+                      addToBasket={addToBasket}
+                    />
+                  }
+                />
+              </Route>
+              <Route path="/Register" element={<RouteAuth />} />
+              <Route path="/Login" element={<RouteAuth />} />
+            </Routes>
+          </div>
+          <div className="footer">
+            <Footer />
+          </div>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
