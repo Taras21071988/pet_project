@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import cl from "./RouteAuth.module.scss";
 import { Box } from "@mui/material";
-
 import { instance } from "../../utils/axios";
+import { useAppDispatch } from "../../utils/hook";
+import { login } from "../../srore/slice/auth";
+import { AppErrors } from "../../common/errors";
 
 const RouteAuth = () => {
   const [email, setEmail] = useState("");
@@ -14,28 +16,42 @@ const RouteAuth = () => {
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const location = useLocation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (location.pathname === "/Login") {
-      const userData = {
-        email,
-        password,
-      };
-      const user = await instance.post("/auth/login", userData);
-      console.log(user.data);
-    } else {
-      if(password===repeatPassword){
+      try {
         const userData = {
-          firstName,
-          username,
           email,
           password,
         };
-        const newUser = await instance.post("/auth/register", userData);
-        console.log(newUser.data);
-      }else{
-         alert("У Вас не совпадают пароли!!!")
+        const user = await instance.post("/auth/login", userData);
+        await dispatch(login(user.data));
+        navigate("/");
+      } catch (error) {
+        alert(error.response.data.message);
+        return error;
+      }
+    } else {
+      if (password === repeatPassword) {
+        try {
+          const userData = {
+            firstName,
+            username,
+            email,
+            password,
+          };
+          const newUser = await instance.post("/auth/register", userData);
+          await dispatch(login(newUser.data));
+          navigate("/");
+        } catch (error) {
+          alert(error.response.data.message);
+          return error;
+        }
+      } else {
+        alert(AppErrors.PassworsDoNotMatch);
       }
     }
   };
@@ -56,7 +72,11 @@ const RouteAuth = () => {
             boxShadow={"5px 5px 10px rgba(157, 213, 88, 0.75)"}
           >
             {location.pathname === "/Login" ? (
-              <Login setEmail={setEmail} setPassword={setPassword} />
+              <Login
+                setEmail={setEmail}
+                setPassword={setPassword}
+                navigate={navigate}
+              />
             ) : location.pathname === "/Register" ? (
               <Register
                 setEmail={setEmail}
@@ -64,6 +84,7 @@ const RouteAuth = () => {
                 setRepeatPassword={setRepeatPassword}
                 setFirstName={setFirstName}
                 setUsername={setUsername}
+                navigate={navigate}
               />
             ) : null}
           </Box>

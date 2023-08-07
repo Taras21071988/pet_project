@@ -9,6 +9,7 @@ const Register = (props) => {
     setRepeatPassword,
     setFirstName,
     setUsername,
+    navigate,
   } = props;
 
   return (
@@ -92,7 +93,12 @@ const Register = (props) => {
           </Button>
           <Typography variant="body1" sx={{ fontFamily: "Montserrat" }}>
             У вас есть аккаунт?
-            <span className={cl.span__register}>Войти</span>
+            <span
+              className={cl.span__register}
+              onClick={() => navigate("/Login")}
+            >
+              Войти
+            </span>
           </Typography>
         </div>
       </div>
