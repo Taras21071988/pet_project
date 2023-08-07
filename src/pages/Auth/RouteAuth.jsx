@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 import { instance } from "../../utils/axios";
 import { useAppDispatch } from "../../utils/hook";
 import { login } from "../../srore/slice/auth";
+import { AppErrors } from "../../common/errors";
 
 const RouteAuth = () => {
   const [email, setEmail] = useState("");
@@ -50,7 +51,7 @@ const RouteAuth = () => {
           return error;
         }
       } else {
-        alert("У Вас не совпадают пароли!!!");
+        alert(AppErrors.PassworsDoNotMatch);
       }
     }
   };
