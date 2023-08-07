@@ -71,7 +71,11 @@ const RouteAuth = () => {
             boxShadow={"5px 5px 10px rgba(157, 213, 88, 0.75)"}
           >
             {location.pathname === "/Login" ? (
-              <Login setEmail={setEmail} setPassword={setPassword} />
+              <Login
+                setEmail={setEmail}
+                setPassword={setPassword}
+                navigate={navigate}
+              />
             ) : location.pathname === "/Register" ? (
               <Register
                 setEmail={setEmail}
@@ -79,6 +83,7 @@ const RouteAuth = () => {
                 setRepeatPassword={setRepeatPassword}
                 setFirstName={setFirstName}
                 setUsername={setUsername}
+                navigate={navigate}
               />
             ) : null}
           </Box>
